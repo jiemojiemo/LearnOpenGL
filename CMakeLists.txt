@@ -22,5 +22,5 @@ function(add_demo name)
     target_link_libraries(${name} PRIVATE ${LINK_LIBS})
 endfunction()
 
-add_demo(1_1_hello_window src/1_getting_start/1_1_hello_window.cpp)
-add_demo(1_2_hello_triangle src/1_getting_start/1_2_hello_triangle.cpp)
+add_demo(1_1_hello_window src/1_1_hello_window.cpp)
+add_demo(2_1_hello_triangle src/2_1_hello_triangle.cpp)
