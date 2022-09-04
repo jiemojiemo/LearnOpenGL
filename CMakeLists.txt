@@ -9,11 +9,8 @@ option(ENABLE_ASAN "Enable AddressSanitizer" OFF)
 
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
-add_library(sb7 src/sb7/sb7.cpp)
-target_link_libraries(sb7 PUBLIC glad)
-target_include_directories(sb7 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/sb7)
 
-set(LINK_LIBS ${CONAN_LIBS} glad sb7)
+set(LINK_LIBS ${CONAN_LIBS} glad)
 
 if (ENABLE_ASAN)
     message(STATUS "build with ASAN")
@@ -27,6 +24,3 @@ endfunction()
 
 add_demo(1_1_hello_window src/1_getting_start/1_1_hello_window.cpp)
 add_demo(1_2_hello_triangle src/1_getting_start/1_2_hello_triangle.cpp)
-
-# ----- sb7 -------
-add_demo(2_1 src/sb7/2_1.cpp)
