@@ -26,5 +26,6 @@ add_demo(1_1_hello_window src/1_1_hello_window.cpp)
 add_demo(2_1_hello_triangle src/2_1_hello_triangle.cpp)
 add_demo(2_2_hello_triangle_indexed src/2_2_hello_triangle_indexed.cpp)
 add_demo(2_3_hello_triangle_exercise1 src/2_3_hello_triangle_exercise1.cpp)
+add_demo(2_4_hello_triangle_exercise2 src/2_4_hello_triangle_exercise2.cpp)
 
 
