@@ -20,6 +20,7 @@ endif ()
 function(add_demo name)
     add_executable(${name} ${ARGN} lsan_suppressions.cpp)
     target_link_libraries(${name} PRIVATE ${LINK_LIBS})
+    target_include_directories(${name} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 endfunction()
 
 add_demo(1_1_hello_window src/1_1_hello_window.cpp)
@@ -30,5 +31,6 @@ add_demo(2_4_hello_triangle_exercise2 src/2_4_hello_triangle_exercise2.cpp)
 add_demo(2_5_hello_triangle_exercise3 src/2_5_hello_triangle_exercise3.cpp)
 add_demo(3_1_shaders_uniform src/3_1_shaders_uniform.cpp)
 add_demo(3_2_shaders_interpolation src/3_2_shaders_interpolation.cpp)
+add_demo(3_3_shaders_class src/3_3_shaders_class.cpp)
 
 
