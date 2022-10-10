@@ -29,5 +29,6 @@ add_demo(2_3_hello_triangle_exercise1 src/2_3_hello_triangle_exercise1.cpp)
 add_demo(2_4_hello_triangle_exercise2 src/2_4_hello_triangle_exercise2.cpp)
 add_demo(2_5_hello_triangle_exercise3 src/2_5_hello_triangle_exercise3.cpp)
 add_demo(3_1_shaders_uniform src/3_1_shaders_uniform.cpp)
+add_demo(3_2_shaders_interpolation src/3_2_shaders_interpolation.cpp)
 
 
