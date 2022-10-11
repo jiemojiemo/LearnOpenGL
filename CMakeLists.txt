@@ -24,15 +24,19 @@ function(add_demo name)
 endfunction()
 
 add_demo(1_1_hello_window src/1_1_hello_window.cpp)
+
 add_demo(2_1_hello_triangle src/2_1_hello_triangle.cpp)
 add_demo(2_2_hello_triangle_indexed src/2_2_hello_triangle_indexed.cpp)
 add_demo(2_3_hello_triangle_exercise1 src/2_3_hello_triangle_exercise1.cpp)
 add_demo(2_4_hello_triangle_exercise2 src/2_4_hello_triangle_exercise2.cpp)
 add_demo(2_5_hello_triangle_exercise3 src/2_5_hello_triangle_exercise3.cpp)
+
 add_demo(3_1_shaders_uniform src/3_1_shaders_uniform.cpp)
 add_demo(3_2_shaders_interpolation src/3_2_shaders_interpolation.cpp)
 add_demo(3_3_shaders_class src/3_3_shaders_class.cpp)
 add_demo(3_5_shaders_exercise2 src/3_5_shaders_exercise2.cpp)
 add_demo(3_6_shaders_exercise3 src/3_6_shaders_exercise3.cpp)
+
+add_demo(4_1_textures src/4_1_textures.cpp src/stb_image.cpp)
 
 
