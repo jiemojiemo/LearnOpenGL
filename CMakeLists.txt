@@ -33,5 +33,6 @@ add_demo(3_1_shaders_uniform src/3_1_shaders_uniform.cpp)
 add_demo(3_2_shaders_interpolation src/3_2_shaders_interpolation.cpp)
 add_demo(3_3_shaders_class src/3_3_shaders_class.cpp)
 add_demo(3_5_shaders_exercise2 src/3_5_shaders_exercise2.cpp)
+add_demo(3_6_shaders_exercise3 src/3_6_shaders_exercise3.cpp)
 
 
