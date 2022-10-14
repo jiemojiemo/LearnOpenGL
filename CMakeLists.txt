@@ -44,6 +44,7 @@ add_demo(4_5_textures_exercise3 src/4_5_textures_exercise3.cpp src/stb_image.cpp
 add_demo(4_6_textures_exercise4 src/4_6_textures_exercise4.cpp src/stb_image.cpp)
 
 add_demo(5_1_transformations src/5_1_transformations.cpp src/stb_image.cpp)
+add_demo(5_2_transformations src/5_2_transformations.cpp src/stb_image.cpp)
 
 
 
