@@ -47,6 +47,7 @@ add_demo(5_1_transformations src/5_1_transformations.cpp src/stb_image.cpp)
 add_demo(5_2_transformations_exercise1 src/5_2_transformations_exercise1.cpp src/stb_image.cpp)
 add_demo(5_3_transformations_exercise2 src/5_3_transformations_exercise2.cpp src/stb_image.cpp)
 add_demo(6_1_coordinate_systems src/6_1_coordinate_systems.cpp src/stb_image.cpp)
+add_demo(6_2_coordinate_systems_depth src/6_2_coordinate_systems_depth.cpp src/stb_image.cpp)
 
 
 
