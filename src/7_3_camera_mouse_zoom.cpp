@@ -264,12 +264,7 @@ int main(int argc, char *argv[]) {
 
     glBindVertexArray(vao);
 
-    glm::mat4 view = glm::mat4(1.0f);
 
-    glm::mat4 projection = glm::mat4(1.0f);
-    projection = glm::perspective(glm::radians(45.0f), 1.0f * SCR_WIDTH / SCR_HEIGHT, 0.1f, 100.0f);
-
-    our_shader.setMat4f("projection", projection);
 
     for (; !glfwWindowShouldClose(window);) {
         float currentFrame = static_cast<float>(glfwGetTime());
@@ -302,11 +297,17 @@ int main(int argc, char *argv[]) {
         }
 
         // create view matrix
+        glm::mat4 view = glm::mat4(1.0f);
         view = glm::lookAt(
             cameraPos,
             cameraPos + cameraFront,
             cameraUp);
         our_shader.setMat4f("view", view);
+
+        glm::mat4 projection = glm::mat4(1.0f);
+        projection = glm::perspective(glm::radians(fov), 1.0f * SCR_WIDTH / SCR_HEIGHT, 0.1f, 100.0f);
+
+        our_shader.setMat4f("projection", projection);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
