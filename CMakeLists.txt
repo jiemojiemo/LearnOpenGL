@@ -53,6 +53,7 @@ add_demo(6_4_coordinate_systems_exercise1 src/6_4_coordinate_systems_exercise1.c
 add_demo(6_5_coordinate_systems_exercise3 src/6_5_coordinate_systems_exercise3.cpp src/stb_image.cpp)
 
 add_demo(7_1_camera_circle src/7_1_camera_circle.cpp src/stb_image.cpp)
+add_demo(7_2_camera_keyboard_dt src/7_2_camera_keyboard_dt.cpp src/stb_image.cpp)
 
 
 
