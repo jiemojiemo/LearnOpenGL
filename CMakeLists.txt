@@ -54,6 +54,8 @@ add_demo(6_5_coordinate_systems_exercise3 src/6_5_coordinate_systems_exercise3.c
 
 add_demo(7_1_camera_circle src/7_1_camera_circle.cpp src/stb_image.cpp)
 add_demo(7_2_camera_keyboard_dt src/7_2_camera_keyboard_dt.cpp src/stb_image.cpp)
+add_demo(7_3_camera_mouse_zoom src/7_3_camera_mouse_zoom.cpp src/stb_image.cpp)
+
 
 
 
