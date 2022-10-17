@@ -50,6 +50,7 @@ add_demo(6_1_coordinate_systems src/6_1_coordinate_systems.cpp src/stb_image.cpp
 add_demo(6_2_coordinate_systems_depth src/6_2_coordinate_systems_depth.cpp src/stb_image.cpp)
 add_demo(6_3_coordinate_systems_multiple src/6_3_coordinate_systems_multiple.cpp src/stb_image.cpp)
 add_demo(6_4_coordinate_systems_exercise1 src/6_4_coordinate_systems_exercise1.cpp src/stb_image.cpp)
+add_demo(6_5_coordinate_systems_exercise3 src/6_5_coordinate_systems_exercise3.cpp src/stb_image.cpp)
 
 
 
