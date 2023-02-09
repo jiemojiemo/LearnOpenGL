@@ -1,7 +1,7 @@
-//
-// Created by user on 10/11/22.
-//
-#include <glad/glad.h>
+////
+//// Created by user on 10/11/22.
+////
+#include "glad/glad.h"
 
 #include "stb_image.h"
 #include <GLFW/glfw3.h>
@@ -22,8 +22,8 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 4) {
-        std::cerr << "Usage: " << argv[0] << "/path/to/vertex_shader_file /path/to/fragment_shader_file /path/to/texture_image";
+    if (argc < 5) {
+        std::cerr << "Usage: " << argv[0] << "/path/to/vertex_shader_file /path/to/fragment_shader_file /path/to/texture_image0 /path/to/texture_image1";
         return -1;
     }
 
@@ -61,10 +61,10 @@ int main(int argc, char *argv[]) {
     // ------------------------------------------------------------------
     float vertices[] = {
         // positions          // colors           // texture coords
-        0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,   // top right
-        0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,  // bottom right
+        0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.1f, 0.1f,   // top right
+        0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.1f, 0.0f,  // bottom right
         -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // bottom left
-        -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f   // top left
+        -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.1f   // top left
     };
     unsigned int indices[] = {
         0, 1, 3, // first triangle
@@ -95,30 +95,57 @@ int main(int argc, char *argv[]) {
     glEnableVertexAttribArray(2);
 
     // load and create a texture
-    GLuint texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+    GLuint texture1;
+    glGenTextures(1, &texture1);
+    glBindTexture(GL_TEXTURE_2D, texture1);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // set texture wrapping to GL_REPEAT (default wrapping method)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     // set texture filtering parameters
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-    auto img_path = argv[3];
+    stbi_set_flip_vertically_on_load(true);
+
+    auto img_path0 = argv[3];
     int width, height, nrChannels;
-    unsigned char *data = stbi_load(img_path, &width, &height, &nrChannels, 0);
-    if(data)
-    {
+    unsigned char *data = stbi_load(img_path0, &width, &height, &nrChannels, 0);
+    if (data) {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
-    }else
-    {
+    } else {
         std::cout << "Failed to load texture" << std::endl;
     }
     stbi_image_free(data);
 
+    GLuint texture2;
+    glGenTextures(1, &texture2);
+    glBindTexture(GL_TEXTURE_2D, texture2);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT); // set texture wrapping to GL_REPEAT (default wrapping method)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+    // set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+    auto img_path1 = argv[4];
+    unsigned char *data1 = stbi_load(img_path1, &width, &height, &nrChannels, 0);
+    if (data1) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data1);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data1);
+
+    our_shader.use();
+    our_shader.setInt("texture1", 0);
+    our_shader.setInt("texture2", 1);
+
     for (; !glfwWindowShouldClose(window);) {
-        glBindTexture(GL_TEXTURE_2D, texture);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, texture2);
 
         our_shader.use();
         glBindVertexArray(vao);

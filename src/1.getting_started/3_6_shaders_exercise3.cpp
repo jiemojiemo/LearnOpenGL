@@ -1,7 +1,7 @@
 //
 // Created by user on 10/10/22.
 //
-#include <glad/glad.h>
+#include "glad/glad.h"
 
 #include <GLFW/glfw3.h>
 

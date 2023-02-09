@@ -1,0 +1,34 @@
+
+add_demo(1_1_hello_window 1_1_hello_window.cpp)
+
+add_demo(2_1_hello_triangle 2_1_hello_triangle.cpp)
+add_demo(2_2_hello_triangle_indexed 2_2_hello_triangle_indexed.cpp)
+add_demo(2_3_hello_triangle_exercise1 2_3_hello_triangle_exercise1.cpp)
+add_demo(2_4_hello_triangle_exercise2 2_4_hello_triangle_exercise2.cpp)
+add_demo(2_5_hello_triangle_exercise3 2_5_hello_triangle_exercise3.cpp)
+
+add_demo(3_1_shaders_uniform 3_1_shaders_uniform.cpp)
+add_demo(3_2_shaders_interpolation 3_2_shaders_interpolation.cpp)
+add_demo(3_3_shaders_class 3_3_shaders_class.cpp)
+add_demo(3_5_shaders_exercise2 3_5_shaders_exercise2.cpp)
+add_demo(3_6_shaders_exercise3 3_6_shaders_exercise3.cpp)
+
+add_demo(4_1_textures 4_1_textures.cpp stb_image.cpp)
+add_demo(4_2_textures_combined 4_2_textures_combined.cpp stb_image.cpp)
+add_demo(4_4_textures_exercise2 4_4_textures_exercise2.cpp stb_image.cpp)
+add_demo(4_5_textures_exercise3 4_5_textures_exercise3.cpp stb_image.cpp)
+add_demo(4_6_textures_exercise4 4_6_textures_exercise4.cpp stb_image.cpp)
+
+add_demo(5_1_transformations 5_1_transformations.cpp stb_image.cpp)
+add_demo(5_2_transformations_exercise1 5_2_transformations_exercise1.cpp stb_image.cpp)
+add_demo(5_3_transformations_exercise2 5_3_transformations_exercise2.cpp stb_image.cpp)
+add_demo(6_1_coordinate_systems 6_1_coordinate_systems.cpp stb_image.cpp)
+add_demo(6_2_coordinate_systems_depth 6_2_coordinate_systems_depth.cpp stb_image.cpp)
+add_demo(6_3_coordinate_systems_multiple 6_3_coordinate_systems_multiple.cpp stb_image.cpp)
+add_demo(6_4_coordinate_systems_exercise1 6_4_coordinate_systems_exercise1.cpp stb_image.cpp)
+add_demo(6_5_coordinate_systems_exercise3 6_5_coordinate_systems_exercise3.cpp stb_image.cpp)
+
+add_demo(7_1_camera_circle 7_1_camera_circle.cpp stb_image.cpp)
+add_demo(7_2_camera_keyboard_dt 7_2_camera_keyboard_dt.cpp stb_image.cpp)
+add_demo(7_3_camera_mouse_zoom 7_3_camera_mouse_zoom.cpp stb_image.cpp)
+

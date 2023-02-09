@@ -1,15 +1,15 @@
 ////
 //// Created by user on 10/11/22.
 ////
-#include <glad/glad.h>
+#include "glad/glad.h"
 
 #include "stb_image.h"
 #include <GLFW/glfw3.h>
 
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
 #include "learnopengl/shader_s.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 
 using namespace std;
@@ -22,26 +22,6 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     // make sure the viewport matches the new window dimensions; note that width and
     // height will be significantly larger than specified on retina displays.
     glViewport(0, 0, width, height);
-}
-
-void processInput(GLFWwindow* window, float& fov)
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-
-    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-    {
-        fov += 0.1f; // change this value accordingly (might be too slow or too fast based on system hardware)
-        if(fov >= 90.0f)
-            fov = 90.0f;
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-    {
-        fov -= 0.1f; // change this value accordingly (might be too slow or too fast based on system hardware)
-        if (fov <= 0.0f)
-            fov = 0.0f;
-    }
 }
 
 int main(int argc, char *argv[]) {
@@ -189,11 +169,7 @@ int main(int argc, char *argv[]) {
     our_shader.setInt("texture1", 0);
     our_shader.setInt("texture2", 1);
 
-    float fov = 45.0f;
     for (; !glfwWindowShouldClose(window);) {
-        processInput(window, fov);
-
-
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // also clear the depth buffer now!
 
@@ -211,7 +187,7 @@ int main(int argc, char *argv[]) {
         glm::mat4 view = glm::mat4(1.0f);
         view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
         glm::mat4 projection = glm::mat4(1.0f);
-        projection = glm::perspective(glm::radians(fov), 1.0f * SCR_WIDTH / SCR_HEIGHT, 0.1f, 100.0f);
+        projection = glm::perspective(glm::radians(45.0f), 1.0f * SCR_WIDTH / SCR_HEIGHT, 0.1f, 100.0f);
 
         our_shader.setMat4f("model", model);
         our_shader.setMat4f("view", view);

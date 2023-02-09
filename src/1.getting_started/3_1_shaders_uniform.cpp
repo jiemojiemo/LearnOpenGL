@@ -1,12 +1,12 @@
 //
 // Created by user on 10/10/22.
 //
-#include <glad/glad.h>
+#include "glad/glad.h"
 
 #include <GLFW/glfw3.h>
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -99,8 +99,8 @@ int main() {
     // set up vao and vbo
     float vertices[] = {
         0.5f, -0.5f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f,  // bottom left
-        0.0f,  0.5f, 0.0f   // top
+        -0.5f, -0.5f, 0.0f, // bottom left
+        0.0f, 0.5f, 0.0f    // top
     };
     GLuint vao{0};
     GLuint vbo{0};
@@ -110,7 +110,7 @@ int main() {
     glBindVertexArray(vao);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
 
     glBindVertexArray(vao);
@@ -120,7 +120,7 @@ int main() {
 
         glUseProgram(shader_prog);
         double time_value = glfwGetTime();
-        float green_value = static_cast<float>(std::sin(time_value)/2.0f + 0.5f);
+        float green_value = static_cast<float>(std::sin(time_value) / 2.0f + 0.5f);
         int vertex_color_location = glGetUniformLocation(shader_prog, "ourColor");
         glUniform4f(vertex_color_location, 0.0f, green_value, 0.0f, 1.0f);
 
