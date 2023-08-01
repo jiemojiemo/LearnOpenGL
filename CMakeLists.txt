@@ -20,7 +20,7 @@ endif ()
 function(add_demo name)
     add_executable(${name} ${ARGN} ${PROJECT_SOURCE_DIR}/lsan_suppressions.cpp)
     target_link_libraries(${name} PRIVATE ${LINK_LIBS})
-    target_include_directories(${name} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+    target_include_directories(${name} PRIVATE ${PROJECT_SOURCE_DIR}/include)
 endfunction()
 
 add_subdirectory(src/1.getting_started)

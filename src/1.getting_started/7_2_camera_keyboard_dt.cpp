@@ -175,8 +175,10 @@ int main(int argc, char *argv[]) {
     auto img_path0 = argv[3];
     int width, height, nrChannels;
     unsigned char *data = stbi_load(img_path0, &width, &height, &nrChannels, 0);
+    GLenum data_format = nrChannels == 4 ? GL_RGBA : GL_RGB;
+    GLint internal_format = nrChannels == 4 ? GL_RGBA : GL_RGB;
     if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glTexImage2D(GL_TEXTURE_2D, 0, internal_format, width, height, 0, data_format, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     } else {
         std::cout << "Failed to load texture" << std::endl;
@@ -194,8 +196,10 @@ int main(int argc, char *argv[]) {
 
     auto img_path1 = argv[4];
     unsigned char *data1 = stbi_load(img_path1, &width, &height, &nrChannels, 0);
+    data_format = nrChannels == 4 ? GL_RGBA : GL_RGB;
+    internal_format = nrChannels == 4 ? GL_RGBA : GL_RGB;
     if (data1) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data1);
+        glTexImage2D(GL_TEXTURE_2D, 0, internal_format, width, height, 0, data_format, GL_UNSIGNED_BYTE, data1);
         glGenerateMipmap(GL_TEXTURE_2D);
     } else {
         std::cout << "Failed to load texture" << std::endl;
